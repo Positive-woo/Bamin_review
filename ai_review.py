@@ -12,12 +12,19 @@ import os
 import sys
 ## ETC import
 import time
+from tkinter import messagebox
+import tkinter as tk
+
+
 
 ## 개인정보
 id = 'kjs604500'
 pw = '1212kjs!'
 store_code = '14247040'
 GOOGLE_API_KEY= "AIzaSyCnLGOrmzp-iTeQx08vJYN6jH_5h1U3Q0s"
+
+
+
 
 def main():
     options = Options()
@@ -196,7 +203,9 @@ def main():
                     ad_pop_no_answer()
                 elif upload == '0':
                     human_response = input("수정 내용을 입력해주세요\n")
-                    total_response = human_response + pin_text
+                    regeneration = model.generate_content(response.text + "이게 너가 답한 대답이야 이거에 대해" + human_response)
+                    print(regeneration.text)
+                    total_response = regeneration.text + pin_text
                     text_area.send_keys(total_response)
                     try:
                         # 여러 클래스를 포함하는 요소를 찾기 위한 XPath
@@ -207,7 +216,7 @@ def main():
                     except Exception as e:
                         print(f"등록 버튼을 찾지 못했습니다: {e}")
                     ## 화면 새로고침
-                    time.sleep(3)
+                    time.sleep(2)
                     driver.refresh()
                     ## 기존화면 형태로 세팅
                     ad_pop_no_answer()
