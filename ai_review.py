@@ -18,10 +18,10 @@ import tkinter as tk
 
 
 ## 개인정보
-id = 'kjs604500'
-pw = '1212kjs!'
-store_code = '14247040'
-GOOGLE_API_KEY= "AIzaSyCnLGOrmzp-iTeQx08vJYN6jH_5h1U3Q0s"
+id = '####'
+pw = '####'
+store_code = '####'
+GOOGLE_API_KEY= "####"
 
 
 
